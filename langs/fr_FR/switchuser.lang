@@ -20,7 +20,7 @@
 # Module label 'ModuleSwitchUserName'
 ModuleSwitchUserName = SwitchUser
 # Module description 'ModuleSwitchUserDesc'
-ModuleSwitchUserDesc = Description de SwitchUser
+ModuleSwitchUserDesc = Permet au superadmin de changer d'utilisateur
 
 #
 # Page d'administration
