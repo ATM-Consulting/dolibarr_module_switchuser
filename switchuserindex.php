@@ -84,16 +84,6 @@ print '<div class="fichecenter"><div class="fichethirdleft">';
 
 print '<div class="fichecenter"><div class="fichethirdleft">';
 
-//if (is_file('../main.inc.php')) $dir = '../';
-//else if (is_file('../../../main.inc.php')) $dir = '../../../';
-//else if (is_file('../../../../main.inc.php')) $dir = '../../../../';
-//else if (is_file('../../../../../main.inc.php')) $dir = '../../../../../';
-//else $dir = '../../';
-
-//require $dir . 'main.inc.php';
-
-//require '../../main.inc.php';
-
 if (empty($user->admin)) exit('NotAdmin');
 
 $action = GETPOST('action');
