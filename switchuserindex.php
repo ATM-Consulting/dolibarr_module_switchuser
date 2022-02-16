@@ -71,6 +71,8 @@ $now = dol_now();
  * View
  */
 
+global $db;
+
 $form = new Form($db);
 $formfile = new FormFile($db);
 
@@ -80,6 +82,43 @@ print load_fiche_titre($langs->trans("SwitchUserArea"), '', 'switchuser.png@swit
 
 print '<div class="fichecenter"><div class="fichethirdleft">';
 
+print '<div class="fichecenter"><div class="fichethirdleft">';
+
+//if (is_file('../main.inc.php')) $dir = '../';
+//else if (is_file('../../../main.inc.php')) $dir = '../../../';
+//else if (is_file('../../../../main.inc.php')) $dir = '../../../../';
+//else if (is_file('../../../../../main.inc.php')) $dir = '../../../../../';
+//else $dir = '../../';
+
+//require $dir . 'main.inc.php';
+
+//require '../../main.inc.php';
+
+if (empty($user->admin)) exit('NotAdmin');
+
+$action = GETPOST('action');
+if ($action === 'switch') {
+
+	$u = new User($db);
+	$u->fetch(GETPOST('userid'));
+
+	$_SESSION["dol_login"] = $u->login;
+
+	header('location:' . dol_buildpath('/', 1));
+
+}
+
+?>
+	<form action="?" name="f1">
+		<input type="hidden" name="action" value="switch"/>
+		<?php
+		//$form = new Form($db);
+		$form->select_users();
+
+		?>
+		<input type="submit" name="switch" value="Switch"/>
+	</form>
+<?php
 
 /* BEGIN MODULEBUILDER DRAFT MYOBJECT
 // Draft MyObject
