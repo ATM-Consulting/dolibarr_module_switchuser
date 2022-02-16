@@ -45,7 +45,7 @@ class modSwitchUser extends DolibarrModules
 
 		// Id for module (must be unique).
 		// Use here a free id (See in Home -> System information -> Dolibarr for list of used modules id).
-		$this->numero = 500000; // TODO Go on page https://wiki.dolibarr.org/index.php/List_of_modules_id to reserve an id number for your module
+		$this->numero = 104097;
 
 		// Key text used to identify module (for permissions, menus, etc...)
 		$this->rights_class = 'switchuser';
@@ -83,7 +83,7 @@ class modSwitchUser extends DolibarrModules
 		// If file is in theme/yourtheme/img directory under name object_pictovalue.png, use this->picto='pictovalue'
 		// If file is in module/img directory under name object_pictovalue.png, use this->picto='pictovalue@module'
 		// To use a supported fa-xxx css style of font awesome, use this->picto='xxx'
-		$this->picto = 'generic';
+		$this->picto = 'user';
 
 		// Define some features supported by module (triggers, login, substitutions, menus, css, etc...)
 		$this->module_parts = array(
@@ -264,42 +264,42 @@ class modSwitchUser extends DolibarrModules
 		$r = 0;
 		// Add here entries to declare new permissions
 		/* BEGIN MODULEBUILDER PERMISSIONS */
-		$this->rights[$r][0] = $this->numero + $r; // Permission id (must not be already used)
-		$this->rights[$r][1] = 'Read objects of SwitchUser'; // Permission label
-		$this->rights[$r][4] = 'myobject'; // In php code, permission will be checked by test if ($user->rights->switchuser->level1->level2)
-		$this->rights[$r][5] = 'read'; // In php code, permission will be checked by test if ($user->rights->switchuser->level1->level2)
-		$r++;
-		$this->rights[$r][0] = $this->numero + $r; // Permission id (must not be already used)
-		$this->rights[$r][1] = 'Create/Update objects of SwitchUser'; // Permission label
-		$this->rights[$r][4] = 'myobject'; // In php code, permission will be checked by test if ($user->rights->switchuser->level1->level2)
-		$this->rights[$r][5] = 'write'; // In php code, permission will be checked by test if ($user->rights->switchuser->level1->level2)
-		$r++;
-		$this->rights[$r][0] = $this->numero + $r; // Permission id (must not be already used)
-		$this->rights[$r][1] = 'Delete objects of SwitchUser'; // Permission label
-		$this->rights[$r][4] = 'myobject'; // In php code, permission will be checked by test if ($user->rights->switchuser->level1->level2)
-		$this->rights[$r][5] = 'delete'; // In php code, permission will be checked by test if ($user->rights->switchuser->level1->level2)
-		$r++;
+//		$this->rights[$r][0] = $this->numero + $r; // Permission id (must not be already used)
+//		$this->rights[$r][1] = 'Read objects of SwitchUser'; // Permission label
+//		$this->rights[$r][4] = 'myobject'; // In php code, permission will be checked by test if ($user->rights->switchuser->level1->level2)
+//		$this->rights[$r][5] = 'read'; // In php code, permission will be checked by test if ($user->rights->switchuser->level1->level2)
+//		$r++;
+//		$this->rights[$r][0] = $this->numero + $r; // Permission id (must not be already used)
+//		$this->rights[$r][1] = 'Create/Update objects of SwitchUser'; // Permission label
+//		$this->rights[$r][4] = 'myobject'; // In php code, permission will be checked by test if ($user->rights->switchuser->level1->level2)
+//		$this->rights[$r][5] = 'write'; // In php code, permission will be checked by test if ($user->rights->switchuser->level1->level2)
+//		$r++;
+//		$this->rights[$r][0] = $this->numero + $r; // Permission id (must not be already used)
+//		$this->rights[$r][1] = 'Delete objects of SwitchUser'; // Permission label
+//		$this->rights[$r][4] = 'myobject'; // In php code, permission will be checked by test if ($user->rights->switchuser->level1->level2)
+//		$this->rights[$r][5] = 'delete'; // In php code, permission will be checked by test if ($user->rights->switchuser->level1->level2)
+//		$r++;
 		/* END MODULEBUILDER PERMISSIONS */
 
 		// Main menu entries to add
 		$this->menu = array();
-		$r = 0;
-		// Add here entries to declare new menus
-		/* BEGIN MODULEBUILDER TOPMENU */
-		$this->menu[$r++] = array(
-			'fk_menu'=>'', // '' if this is a top menu. For left menu, use 'fk_mainmenu=xxx' or 'fk_mainmenu=xxx,fk_leftmenu=yyy' where xxx is mainmenucode and yyy is a leftmenucode
-			'type'=>'top', // This is a Top menu entry
-			'titre'=>'ModuleSwitchUserName',
-			'mainmenu'=>'switchuser',
-			'leftmenu'=>'',
-			'url'=>'/switchuser/switchuserindex.php',
-			'langs'=>'switchuser@switchuser', // Lang file to use (without .lang) by module. File must be in langs/code_CODE/ directory.
-			'position'=>1000 + $r,
-			'enabled'=>'$conf->switchuser->enabled', // Define condition to show or hide menu entry. Use '$conf->switchuser->enabled' if entry must be visible if module is enabled.
-			'perms'=>'1', // Use 'perms'=>'$user->rights->switchuser->myobject->read' if you want your menu with a permission rules
-			'target'=>'',
-			'user'=>2, // 0=Menu for internal users, 1=external users, 2=both
-		);
+//		$r = 0;
+//		// Add here entries to declare new menus
+//		/* BEGIN MODULEBUILDER TOPMENU */
+//		$this->menu[$r++] = array(
+//			'fk_menu'=>'', // '' if this is a top menu. For left menu, use 'fk_mainmenu=xxx' or 'fk_mainmenu=xxx,fk_leftmenu=yyy' where xxx is mainmenucode and yyy is a leftmenucode
+//			'type'=>'top', // This is a Top menu entry
+//			'titre'=>'ModuleSwitchUserName',
+//			'mainmenu'=>'switchuser',
+//			'leftmenu'=>'',
+//			'url'=>'/switchuser/switchuserindex.php',
+//			'langs'=>'switchuser@switchuser', // Lang file to use (without .lang) by module. File must be in langs/code_CODE/ directory.
+//			'position'=>1000 + $r,
+//			'enabled'=>'$conf->switchuser->enabled', // Define condition to show or hide menu entry. Use '$conf->switchuser->enabled' if entry must be visible if module is enabled.
+//			'perms'=>'1', // Use 'perms'=>'$user->rights->switchuser->myobject->read' if you want your menu with a permission rules
+//			'target'=>'',
+//			'user'=>2, // 0=Menu for internal users, 1=external users, 2=both
+//		);
 		/* END MODULEBUILDER TOPMENU */
 		/* BEGIN MODULEBUILDER LEFTMENU MYOBJECT
 		$this->menu[$r++]=array(
