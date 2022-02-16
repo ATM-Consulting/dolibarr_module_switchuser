@@ -46,3 +46,8 @@ MyPageName = Nom de ma page
 #
 MyWidget = Mon widget
 MyWidgetDescription = Description de mon widget
+
+NotSuperAdmin = Seulement le superadmin peut utiliser ce module
+ErrorUserNotActive = Impossible de réaliser cette action avec un utilisateur non actif
+ErrorFetchUser = Erreur lors du fetch de l'objet User
+SwitchUserSelect = Sélectionner un utilisateur

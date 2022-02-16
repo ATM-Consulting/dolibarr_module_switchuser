@@ -49,13 +49,9 @@ $langs->loadLangs(array("admin", "switchuser@switchuser"));
 // Access control
 if (!$user->admin) accessforbidden();
 
-
-
 // Parameters
 $action = GETPOST('action', 'aZ09');
 $backtopage = GETPOST('backtopage', 'alpha');
-
-
 
 /*
  * Actions
@@ -63,21 +59,24 @@ $backtopage = GETPOST('backtopage', 'alpha');
 $action = GETPOST('action');
 if ($action === 'switch') {
 
-
-// todo : afficher message erreur si pas superadmin et bienb ne pas faire l'action
-
-	$u = new User($db);
-	$u->fetch(GETPOST('userid', 'int'));
-// todo verifier que le fectr fonctionne
-	// todo : limiter au user actif sinon message erreur
-	//  si success redirection home sinon on reste sur la page avec le message
-
-
-
-	$_SESSION["dol_login"] = $u->login;
-
-	header('location:' . dol_buildpath('/', 1));
-
+// Check if user is superadmin
+	if ($user->entity != 0) {
+		setEventMessage($langs->trans('NotSuperAdmin'));
+	} else {
+		$u = new User($db);
+		$res = $u->fetch(GETPOST('userid', 'int'));
+		if ($res) {
+			//Check if user is active
+			if ($u->statut == 1) {
+				$_SESSION["dol_login"] = $u->login;
+				header('location:' . dol_buildpath('/', 1));
+			} else {
+				setEventMessage('ErrorUserNotActive');
+			}
+		} else {
+			setEventMessage('ErrorFetchUser');
+		}
+	}
 }
 
 /*
@@ -100,19 +99,22 @@ print load_fiche_titre($langs->trans($page_name), $linkback, 'object_switchuser@
 $head = switchuserAdminPrepareHead();
 print dol_get_fiche_head($head, 'settings', '', -1, "switchuser@switchuser");
 
-// todo : afficher message warnig si pas superadmin
-?>
+// Check if user is superadmin
+if ($user->entity != 0) {
+	setEventMessage($langs->trans('NotSuperAdmin'));
+} else {
+	?>
 	<form action="?" name="f1">
 		<fieldset>
-			<legend><?php print $langs->trans('dhkcbgdqkjczjkedchbzkej') ?></legend>
+			<legend><?php print $langs->trans('SwitchUserSelect') ?></legend>
 			<input type="hidden" name="action" value="switch"/>
 			<?php print $form->select_dolusers('', 'userid', 0, null, 0, '', '', '0', 0, 0, '', 0, '', '', 1); ?>
 			<button class="button" type="submit" name="switch" value="Switch" ><?php print $langs->trans('nom du bouton') ?></button>
 		</fieldset>
 
 	</form>
-<?php
-
+	<?php
+}
 
 // Page end
 print dol_get_fiche_end();
