@@ -51,3 +51,4 @@ NotSuperAdmin = Seulement le superadmin peut utiliser ce module
 ErrorUserNotActive = Impossible de réaliser cette action avec un utilisateur non actif
 ErrorFetchUser = Erreur lors du fetch de l'objet User
 SwitchUserSelect = Sélectionner un utilisateur
+SwitchUser = Changer d'utilisateur

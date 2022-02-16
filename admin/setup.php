@@ -101,7 +101,7 @@ print dol_get_fiche_head($head, 'settings', '', -1, "switchuser@switchuser");
 
 // Check if user is superadmin
 if ($user->entity != 0) {
-	setEventMessage($langs->trans('NotSuperAdmin'));
+	print '<div class="warning">' . $langs->trans('NotSuperAdmin'). '</div>';
 } else {
 	?>
 	<form action="?" name="f1">
@@ -109,7 +109,7 @@ if ($user->entity != 0) {
 			<legend><?php print $langs->trans('SwitchUserSelect') ?></legend>
 			<input type="hidden" name="action" value="switch"/>
 			<?php print $form->select_dolusers('', 'userid', 0, null, 0, '', '', '0', 0, 0, '', 0, '', '', 1); ?>
-			<button class="button" type="submit" name="switch" value="Switch" ><?php print $langs->trans('nom du bouton') ?></button>
+			<button class="button" type="submit" name="switch" value="Switch" ><?php print $langs->trans('SwitchUser') ?></button>
 		</fieldset>
 
 	</form>
