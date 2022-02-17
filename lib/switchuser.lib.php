@@ -36,7 +36,7 @@ function switchuserAdminPrepareHead()
 	$head = array();
 
 	$head[$h][0] = dol_buildpath("/switchuser/admin/setup.php", 1);
-	$head[$h][1] = $langs->trans("Settings");
+	$head[$h][1] = $langs->trans("SwitchUserSettings");
 	$head[$h][2] = 'settings';
 	$h++;
 
